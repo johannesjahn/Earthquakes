@@ -1,10 +1,11 @@
 import axios from "axios";
 import type { NextPage } from "next";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import MapVisualization from "../components/map";
-import { EarthquakeData } from "../components/model";
-import { useEarthquakes } from "../components/state";
 import Timer from "../components/timer";
+import { EARTHQUAKE_URL } from "../service/constants";
+import { EarthquakeData } from "../service/model";
+import { useEarthquakes } from "../service/state";
 
 const Home: NextPage<{ data: EarthquakeData }> = () => {
   const earthquakes = useEarthquakes((state) => state.earthquakes);
@@ -14,9 +15,7 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(
-        "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
-      )
+      .get(EARTHQUAKE_URL)
       .then((d) => {
         setEarthquakes(d.data);
       })
@@ -37,7 +36,7 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
     >
       <div style={{ position: "relative", width: "100%" }}>
         <Timer />
-        <h1 style={{ textAlign: "center" }}>Earthquake Visualization System</h1>
+        <h1 style={{ textAlign: "center" }}>Earthquakes in the USA</h1>
       </div>
       {earthquakes ? <MapVisualization /> : null}
     </div>

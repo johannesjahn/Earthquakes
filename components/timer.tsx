@@ -1,7 +1,8 @@
 import { Button, Progress } from "@mantine/core";
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
-import { useEarthquakes } from "./state";
+import { EARTHQUAKE_URL } from "../service/constants";
+import { useEarthquakes } from "../service/state";
 
 const TIMEOUT = 1000 * 60;
 
@@ -40,9 +41,7 @@ const Timer: FC = () => {
           onClick={async () => {
             setLoading(true);
             try {
-              const data = await axios.get(
-                "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
-              );
+              const data = await axios.get(EARTHQUAKE_URL);
               setEarthquakes(data.data);
               setUpdatedAt(new Date());
               setCanRefresh(false);

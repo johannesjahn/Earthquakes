@@ -1,6 +1,6 @@
 import { Table } from "@mantine/core";
 import { FC } from "react";
-import { EarthquakeFeature } from "./model";
+import { EarthquakeFeature } from "../service/model";
 
 const EarthquakeDetail: FC<{ earthquake: EarthquakeFeature }> = ({
   earthquake,

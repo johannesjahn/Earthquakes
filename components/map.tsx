@@ -2,8 +2,8 @@ import { LoadingOverlay, Modal, Table } from "@mantine/core";
 import { FC, useRef, useEffect, useState } from "react";
 import { VegaLite } from "react-vega";
 import EarthquakeDetail from "./earthquakeDetail";
-import { EarthquakeData, EarthquakeFeature } from "./model";
-import { useEarthquakes } from "./state";
+import { EarthquakeData, EarthquakeFeature } from "../service/model";
+import { useEarthquakes } from "../service/state";
 
 const MapVisualization: FC = () => {
   const loading = useEarthquakes((state) => state.loading);
