@@ -59,6 +59,29 @@ const MapVisualization: FC<{ earthquakedata: EarthquakeData }> = ({
                 color: { value: "steelblue" },
               },
             },
+            {
+              data: {
+                values: earthquakedata.features,
+              },
+              projection: {
+                type: "albersUsa",
+              },
+              mark: {
+                type: "text",
+                dy: -10,
+              },
+              encoding: {
+                longitude: {
+                  field: "geometry.coordinates[0]",
+                  type: "quantitative",
+                },
+                latitude: {
+                  field: "geometry.coordinates[1]",
+                  type: "quantitative",
+                },
+                text: { field: "properties.mag", type: "quantitative" },
+              },
+            },
           ],
         }}
       />
