@@ -1,4 +1,4 @@
-import { LoadingOverlay, Modal } from "@mantine/core";
+import { LoadingOverlay, Modal, useMantineTheme } from "@mantine/core";
 import { FC, useState } from "react";
 import { VegaLite } from "react-vega";
 import { EarthquakeFeature } from "../service/model";
@@ -9,6 +9,7 @@ const MapVisualization: FC = () => {
   const loading = useEarthquakes((state) => state.loading);
   const earthquakes = useEarthquakes((state) => state.earthquakes);
   const [selected, setSelected]: [EarthquakeFeature?, any?] = useState();
+  const theme = useMantineTheme();
 
   return (
     <div
@@ -50,6 +51,8 @@ const MapVisualization: FC = () => {
             height={400}
             renderer="svg"
             spec={{
+              background:
+                theme.colorScheme === "dark" ? theme.colors.dark[7] : "#fff",
               layer: [
                 {
                   data: {
@@ -64,7 +67,10 @@ const MapVisualization: FC = () => {
                   },
                   mark: {
                     type: "geoshape",
-                    fill: "lightgray",
+                    fill:
+                      theme.colorScheme === "dark"
+                        ? theme.colors.dark[7]
+                        : "lightgray",
                     stroke: "white",
                   },
                 },

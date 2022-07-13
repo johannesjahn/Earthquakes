@@ -1,3 +1,4 @@
+import { AppShell, useMantineTheme } from "@mantine/core";
 import axios from "axios";
 import type { NextPage } from "next";
 import { useEffect } from "react";
@@ -11,6 +12,7 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
   const earthquakes = useEarthquakes((state) => state.earthquakes);
   const setEarthquakes = useEarthquakes((state) => state.setEarthquakes);
   const setLoading = useEarthquakes((state) => state.setLoading);
+  const theme = useMantineTheme();
 
   // Load earthquakes data on mount
   useEffect(() => {
@@ -23,7 +25,7 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
       .finally(() => {
         setLoading(false);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -34,11 +36,12 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
         flexDirection: "column",
         justifyContent: "start",
         alignItems: "center",
+        background: theme.colorScheme === 'dark' ? theme.colors.dark[7] : '#fff',
       }}
     >
       <div style={{ position: "relative", width: "100%" }}>
         <Timer />
-        <h1 style={{ textAlign: "center" }}>Earthquakes in the USA</h1>
+        <h1 style={{ textAlign: "center", color: theme.colorScheme === 'dark' ? 'white' : 'black' }}>Earthquakes in the USA</h1>
       </div>
       {earthquakes ? <MapVisualization /> : null}
     </div>
