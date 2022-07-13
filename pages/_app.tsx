@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { MantineProvider, Switch, useMantineTheme } from "@mantine/core";
 import { useState } from "react";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const theme = useMantineTheme();
@@ -11,6 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <MantineProvider theme={{ colorScheme: colorScheme }}>
+      <Head>
+        <title>Earthquakes</title>
+      </Head>
       <Switch
         checked={colorScheme === "light"}
         onChange={({ target }) => {
