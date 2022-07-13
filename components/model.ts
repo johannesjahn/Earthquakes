@@ -22,6 +22,7 @@ export interface EarthquakeFeature {
 }
 
 export interface EarthquakeFeatureProperties {
+  title: string;
   type: string;
   mag: number;
   place: string;
