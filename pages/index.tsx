@@ -9,13 +9,20 @@ import Timer from "../components/timer";
 const Home: NextPage<{ data: EarthquakeData }> = () => {
   const earthquakes = useEarthquakes((state) => state.earthquakes);
   const setEarthquakes = useEarthquakes((state) => state.setEarthquakes);
+  const setLoading = useEarthquakes((state) => state.setLoading);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(
         "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
       )
-      .then((d) => setEarthquakes(d.data));
+      .then((d) => {
+        setEarthquakes(d.data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -28,10 +35,11 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
         alignItems: "center",
       }}
     >
-      <div>
+      <div style={{ position: "relative", width: "100%" }}>
         <Timer />
+        <h1 style={{ textAlign: "center" }}>Earthquake Visualization System</h1>
       </div>
-      {earthquakes ? <MapVisualization earthquakedata={earthquakes} /> : null}
+      {earthquakes ? <MapVisualization /> : null}
     </div>
   );
 };
