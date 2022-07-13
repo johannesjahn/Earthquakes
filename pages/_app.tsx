@@ -1,10 +1,10 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
 import { MantineProvider, Switch, useMantineTheme } from "@mantine/core";
-import { useEffect, useState } from "react";
+import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useEffect, useState } from "react";
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function EarthquakeApp({ Component, pageProps }: AppProps) {
   const theme = useMantineTheme();
 
   const [colorScheme, setColorScheme]: ["light" | "dark", any] =
@@ -35,4 +35,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default EarthquakeApp;
