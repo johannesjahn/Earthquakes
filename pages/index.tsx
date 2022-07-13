@@ -12,6 +12,7 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
   const setEarthquakes = useEarthquakes((state) => state.setEarthquakes);
   const setLoading = useEarthquakes((state) => state.setLoading);
 
+  // Load earthquakes data on mount
   useEffect(() => {
     setLoading(true);
     axios
@@ -22,6 +23,7 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
       .finally(() => {
         setLoading(false);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
