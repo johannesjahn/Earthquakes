@@ -1,39 +1,19 @@
-import { LoadingOverlay, Modal, useMantineTheme } from "@mantine/core";
-import { FC, useState } from "react";
+import { useMantineTheme } from "@mantine/core";
+import { FC } from "react";
 import { VegaLite } from "react-vega";
-import { EarthquakeFeature } from "../service/model";
 import { useEarthquakes } from "../service/state";
-import EarthquakeDetail from "./earthquakeDetail";
 
 const MapVisualization: FC = () => {
   const loading = useEarthquakes((state) => state.loading);
   const earthquakes = useEarthquakes((state) => state.earthquakes);
-  const [selected, setSelected]: [EarthquakeFeature?, any?] = useState();
+  const selected = useEarthquakes((state) => state.selectedEarthquake);
+  const setSelected = useEarthquakes((state) => state.setSelectedEarthquake);
   const theme = useMantineTheme();
 
   return (
-    <div
-      style={{
-        flexGrow: 1,
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
-      <LoadingOverlay visible={loading} />
+    <>
       {earthquakes ? (
         <>
-          <Modal
-            overlayBlur={5}
-            overlayColor="transparent"
-            overflow="outside"
-            opened={!!selected}
-            onClose={() => {
-              setSelected(undefined);
-            }}
-          >
-            {selected ? <EarthquakeDetail earthquake={selected} /> : null}
-          </Modal>
           <VegaLite
             onNewView={(v) => {
               v.addEventListener("click", (event, item) => {
@@ -104,14 +84,15 @@ const MapVisualization: FC = () => {
                       },
                       {
                         field: "properties.mag",
-                        type: "ordinal",
+                        type: "quantitative",
                         title: "Magnitude",
                       },
                     ],
                     size: { field: "properties.mag", legend: null },
                     color: {
                       field: "properties.mag",
-                      type: "ordinal",
+                      type: "quantitative",
+                      legend: null,
                       scale: {
                         rangeMin: 0,
                         rangeMax: 10,
@@ -125,7 +106,7 @@ const MapVisualization: FC = () => {
           />
         </>
       ) : null}
-    </div>
+    </>
   );
 };
 

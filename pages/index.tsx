@@ -2,7 +2,7 @@ import { useMantineTheme } from "@mantine/core";
 import axios from "axios";
 import type { NextPage } from "next";
 import { useEffect } from "react";
-import MapVisualization from "../components/map";
+import TabsHolder from "../components/tabs";
 import Timer from "../components/timer";
 import { EARTHQUAKE_URL } from "../service/constants";
 import { EarthquakeData } from "../service/model";
@@ -51,7 +51,7 @@ const Home: NextPage<{ data: EarthquakeData }> = () => {
           Earthquakes in the USA
         </h1>
       </div>
-      {earthquakes ? <MapVisualization /> : null}
+      {earthquakes ? <TabsHolder /> : null}
     </div>
   );
 };
