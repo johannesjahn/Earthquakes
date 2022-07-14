@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) application that visualizes data from the [USGS](https://earthquake.usgs.gov/).
+This is a [Next.js](https://nextjs.org/) application that visualizes data from the [USGS](https://earthquake.usgs.gov/). Hosted on [https://earthquake.johannes-jahn.com/](https://earthquake.johannes-jahn.com/).
 
 ## Getting Started
 
