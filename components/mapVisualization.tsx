@@ -1,6 +1,7 @@
 import { useMantineTheme } from "@mantine/core";
 import { FC } from "react";
 import { VegaLite } from "react-vega";
+import { US_DATA } from "../data/us-10m";
 import { useEarthquakes } from "../data/state";
 
 const MapVisualization: FC = () => {
@@ -34,7 +35,7 @@ const MapVisualization: FC = () => {
               layer: [
                 {
                   data: {
-                    url: "/us-10m.json",
+                    values: US_DATA,
                     format: {
                       type: "topojson",
                       feature: "states",
