@@ -3,6 +3,7 @@
         "albers",
         "geoshape",
         "mantine",
+        "Scatterplot",
         "topojson"
     ]
 }

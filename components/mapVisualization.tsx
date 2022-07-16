@@ -4,9 +4,7 @@ import { VegaLite } from "react-vega";
 import { useEarthquakes } from "../service/state";
 
 const MapVisualization: FC = () => {
-  const loading = useEarthquakes((state) => state.loading);
   const earthquakes = useEarthquakes((state) => state.earthquakes);
-  const selected = useEarthquakes((state) => state.selectedEarthquake);
   const setSelected = useEarthquakes((state) => state.setSelectedEarthquake);
   const theme = useMantineTheme();
 

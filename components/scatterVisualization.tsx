@@ -3,7 +3,7 @@ import { FC } from "react";
 import { VegaLite } from "react-vega";
 import { useEarthquakes } from "../service/state";
 
-const LineVisualization: FC = () => {
+const ScatterVisualization: FC = () => {
   const earthquakes = useEarthquakes((state) => state.earthquakes);
   const setSelected = useEarthquakes((state) => state.setSelectedEarthquake);
   const theme = useMantineTheme();
@@ -89,4 +89,4 @@ const LineVisualization: FC = () => {
   );
 };
 
-export default LineVisualization;
+export default ScatterVisualization;

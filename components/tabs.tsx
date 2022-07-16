@@ -3,8 +3,8 @@ import { FC } from "react";
 import { ChartBubble, Map } from "tabler-icons-react";
 import { useEarthquakes } from "../service/state";
 import EarthquakeDetail from "./earthquakeDetail";
-import LineVisualization from "./line";
-import MapVisualization from "./map";
+import ScatterVisualization from "./scatterVisualization";
+import MapVisualization from "./mapVisualization";
 
 const TabsHolder: FC = () => {
   const loading = useEarthquakes((state) => state.loading);
@@ -38,7 +38,7 @@ const TabsHolder: FC = () => {
           <MapVisualization />
         </Tabs.Tab>
         <Tabs.Tab label="Scatter" icon={<ChartBubble />}>
-          <LineVisualization />
+          <ScatterVisualization />
         </Tabs.Tab>
       </Tabs>
     </div>
