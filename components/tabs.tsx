@@ -1,7 +1,7 @@
 import { LoadingOverlay, Modal, Tabs } from "@mantine/core";
 import { FC } from "react";
 import { ChartBubble, Map } from "tabler-icons-react";
-import { useEarthquakes } from "../service/state";
+import { useEarthquakes } from "../data/state";
 import EarthquakeDetail from "./earthquakeDetail";
 import ScatterVisualization from "./scatterVisualization";
 import MapVisualization from "./mapVisualization";

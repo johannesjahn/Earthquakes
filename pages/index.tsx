@@ -4,9 +4,9 @@ import type { NextPage } from "next";
 import { useEffect } from "react";
 import TabsHolder from "../components/tabs";
 import Timer from "../components/timer";
-import { EARTHQUAKE_URL } from "../service/constants";
-import { EarthquakeData } from "../service/model";
-import { useEarthquakes } from "../service/state";
+import { EARTHQUAKE_URL } from "../data/constants";
+import { EarthquakeData } from "../data/model";
+import { useEarthquakes } from "../data/state";
 
 const Home: NextPage<{ data: EarthquakeData }> = () => {
   const earthquakes = useEarthquakes((state) => state.earthquakes);

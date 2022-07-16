@@ -1,7 +1,7 @@
 import { useMantineTheme } from "@mantine/core";
 import { FC } from "react";
 import { VegaLite } from "react-vega";
-import { useEarthquakes } from "../service/state";
+import { useEarthquakes } from "../data/state";
 
 const ScatterVisualization: FC = () => {
   const earthquakes = useEarthquakes((state) => state.earthquakes);

@@ -1,8 +1,8 @@
 import { Button, Progress } from "@mantine/core";
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
-import { EARTHQUAKE_URL } from "../service/constants";
-import { useEarthquakes } from "../service/state";
+import { EARTHQUAKE_URL } from "../data/constants";
+import { useEarthquakes } from "../data/state";
 
 const TIMEOUT = 1000 * 60;
 
