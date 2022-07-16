@@ -21,7 +21,6 @@ function EarthquakeApp({ Component, pageProps }: AppProps) {
     <MantineProvider theme={{ colorScheme: colorScheme }}>
       <Head>
         <title>Earthquakes</title>
-        <link rel="preload" href="us-10m.json"></link>
       </Head>
       <Switch
         checked={colorScheme === "light"}
