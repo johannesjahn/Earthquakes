@@ -1,7 +1,7 @@
 # Earthquake Visualization
 
-This is a [Next.js](https://nextjs.org/) application that visualizes data from the [USGS](https://earthquake.usgs.gov/). 
-Hosted on AWS, the app is accessible at [https://earthquake.johannes-jahn.com/](https://earthquake.johannes-jahn.com/).
+This is a [Next.js](https://nextjs.org/) application that visualizes data from the [USGS](https://earthquake.usgs.gov/).
+Hosted on Vercel, the app is accessible at [https://earthquake.johannes-jahn.com/](https://earthquake.johannes-jahn.com/).
 It utilizes the [zustand](https://github.com/pmndrs/zustand) library for global state management to keep the data flow simple.
 For visualizations, the app uses the declarative [Vega-Lite](https://vega.github.io/vega-lite/) grammar wrapped with a react package that makes the tool accessible as a react component.
 
